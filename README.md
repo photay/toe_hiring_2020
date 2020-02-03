@@ -12,16 +12,16 @@ It is not required to complete this assignment using Django, but we have initiat
 
 You are programmer for a Dog start-up trying to gather information from users about their dogs. You want to ask users 5 questions:
 
-1. Do you walk your dog daily?  (Boolean)
-2. What is the breed of your dog? (Input)
-3. How old is your dog? (Numeric)
-4. What tricks does your dog know? Select all that apply: Sit, Fetch, Stay, Roll Over
-5. Email Address (Character Input)
+1. Do you walk your dog daily?  (BooleanField)
+2. What is the breed of your dog? (CharField)
+3. How old is your dog? (IntegerField)
+4. What tricks does your dog know? Select all that apply: Sit, Fetch, Stay, Roll Over (MultipleChoiceField)
+5. Email Address (CharField)
 
 Output is a web page based application that takes input from a form and saves it to a database. Upon submit, the results are emailed to the user. Bonus points for making the data accessible via a REST API.
 
 
-#### TODO Checklist:
+### TODO Checklist:
 * Add a model to the database in _toe_hiring_2020/assignment/models.py_
 * Create a form to add input to the new model in _toe_hiring_2020/assignment/forms.py_
 * Display the form in _toe_hiring_2020/static/templates/index.html_
@@ -30,7 +30,7 @@ Output is a web page based application that takes input from a form and saves it
 * (BONUS): Make results accessible via RESTFUL API
 
 
-#### Installing this repo
+### Installing this repo
 
 **Setting up the db**  
 Prior to using this repository, you need to have postgreSQL database to use. [Download here.](https://www.postgresql.org/)
