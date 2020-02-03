@@ -8,7 +8,7 @@ from assignment.forms import *
 class Index(FormView):
 	template_name = "index.html"
 
-	#TODO: Changes this to your new model
+	#TODO: Changes this to your new form
 	form_class= DemoForm
 	success_url= '/success/'
 
