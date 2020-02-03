@@ -1,7 +1,31 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.views.generic import *
+from django.views import View
+from assignment.models import *
+from assignment.forms import *
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+class Index(FormView):
+	template_name = "index.html"
 
-# Create your views here.
+	#TODO: Changes this to your new model
+	form_class= DemoForm
+	success_url= '/success/'
+
+	def get_context_data(self,**kwargs):
+		form = self.form_class(initial=self.initial)
+		context = super(Index,self).get_context_data(**kwargs)
+		return context
+
+
+	def post(self, request, *args, **kargs):
+		print("posted")
+		form = self.get_form()
+
+		#TODO: Process form data here by saving to DB and sending Email
+
+		if form.is_valid():
+			return HttpResponseRedirect(self.get_success_url())
+
+class Success(TemplateView):
+	template_name='success.html'
