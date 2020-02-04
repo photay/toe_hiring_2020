@@ -31,7 +31,7 @@ Output is a web page based application that takes input from a form and saves it
 
 
 ### Installing this repo
-**Requirements**  
+#### **Requirements**  
 `pip install -r requirements.txt`
 
 #### **Setting up the PostgreSQL db (optional)**  
