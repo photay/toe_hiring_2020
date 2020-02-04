@@ -34,16 +34,18 @@ Output is a web page based application that takes input from a form and saves it
 **Requirements**  
 `pip install -r requirements.txt`
 
-**Setting up the db**  
-Prior to using this repository, you need to have postgreSQL database to use. [Download here.](https://www.postgresql.org/)
+#### **Setting up the PostgreSQL db (optional)**  
+This repo is set-up using postgreSQL. You are allowed to use another DB type such SQLite to implement your solution. Here are the instructions for installing postgresSQL.  
 
-**On a MAC, run these commands:**   
+[_Download here._](https://www.postgresql.org/)
+
+_On a MAC, run these commands:_     
 Open Terminal and run the following commands:  
 `psql` - runs psql   
 `CREATE DB HIRING;` - creates DB    
 
-**On a Windows, run these commands:**   
-Install [pgadmin 4](https://www.pgadmin.org/download/pgadmin-4-windows/)
+_On a Windows, run these commands:_     
+Install [pgadmin 4](https://www.pgadmin.org/download/pgadmin-4-windows/)  
 Open pgadmin.  
 In leftmost tab, open Servers > PostgreSQL 9.6 > Database.  
 Right click on Database and click Create > Database.  
@@ -51,7 +53,7 @@ Write HIRING for Database. Click Save.
 
 You have now created a postgres DB named Hiring. Now you will need to set your environment variables to match.
 
-**Environment variables**  
+_Environment variables_   
 To get django to connect to your postgressql db, you need to set the following variables:
 - DATABASE_USER
 - DATABASE_PASSWORD
@@ -59,7 +61,7 @@ To get django to connect to your postgressql db, you need to set the following v
 - DATABASE_PORT
 You can set them in a env file or manually in _toe_hiring_2020/settings.py_ lines 80-84.
 
-**Initiating the repo**  
+#### **Initiating the repo**  
 Run the following commands to initialize the Django app.
 
 `python manage.py migrate`  
