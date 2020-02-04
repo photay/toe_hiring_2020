@@ -31,6 +31,8 @@ Output is a web page based application that takes input from a form and saves it
 
 
 ### Installing this repo
+**Requirements**  
+`pip install -r requirements.txt`
 
 **Setting up the db**  
 Prior to using this repository, you need to have postgreSQL database to use. [Download here.](https://www.postgresql.org/)
@@ -55,6 +57,7 @@ To get django to connect to your postgressql db, you need to set the following v
 - DATABASE_PASSWORD
 - DATABASE_HOST
 - DATABASE_PORT
+You can set them in a env file or manually in _toe_hiring_2020/settings.py_ lines 80-84.
 
 **Initiating the repo**  
 Run the following commands to initialize the Django app.
@@ -62,4 +65,10 @@ Run the following commands to initialize the Django app.
 `python manage.py migrate`  
 `python manage.py runserver`  
 
-The app should start and be viewable at: http://127.0.0.1:8000/
+The app should start and be viewable at: http://127.0.0.1:8000/  
+
+### Grading criteria  
+Code will graded in 3 equally important categories:
+1. **Technicality** - Does the code run? Was it implemented correctly?
+2. **Readability** - Do we understand the code the way it is written? Is candidate using a consistent naming convention for variables, functions, etc? Do they use of comments?
+3. **Implementation** - Did implementation demonstrate understanding of computer science principles? Does applicant know how to correctly write functions, assign variables, etc? Do they understand Django concepts of models, forms and views?
