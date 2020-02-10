@@ -9,7 +9,7 @@ class Index(FormView):
 	template_name = "index.html"
 
 	#TODO: Changes this to your new form
-	form_class= DemoForm
+	form_class= DogForm
 	success_url= '/success/'
 
 	def get_context_data(self,**kwargs):
@@ -24,8 +24,10 @@ class Index(FormView):
 
 		#TODO: Process form data here by saving to DB and sending Email
 
+
 		if form.is_valid():
 			return HttpResponseRedirect(self.get_success_url())
+
 
 class Success(TemplateView):
 	template_name='success.html'
