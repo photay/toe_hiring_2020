@@ -1,11 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from rest_framework import viewsets
+from .serializers import DogQuestionSerializer
 from django.core.mail import send_mail
 from django.conf import settings
 from django.views.generic import *
 from django.views import View
 from assignment.models import *
 from assignment.forms import *
+
+# Rest Api class
+class DogQuestionViewSet(viewsets.ModelViewSet):
+    """docstring for DogQuestionViewSet"""
+    queryset = DogQuestion.objects.all()
+    serializer_class = DogQuestionSerializer
+
 
 class Index(FormView):
     template_name = "index.html"
@@ -40,7 +49,7 @@ class Index(FormView):
             {latest_dog.dog_tricks} 
             '''
             email_from = settings.EMAIL_HOST_USER
-            recipient_list = ['giwipa3403@mailboxt.net',latest_dog.email]
+            recipient_list = [latest_dog.email]
             send_mail(subject, message, email_from, recipient_list, fail_silently =False)
 
             return HttpResponseRedirect(self.get_success_url())
