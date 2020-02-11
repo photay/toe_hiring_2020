@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
+from django.conf import settings
 from django.views.generic import *
 from django.views import View
 from assignment.models import *
@@ -26,6 +28,20 @@ class Index(FormView):
 
         if form.is_valid():
             obj = DogQuestion.objects.create(**form.cleaned_data)
+            latest_dog = DogQuestion.objects.last()
+
+            # send_email
+            subject = 'Your dog information'
+            message = f'''These are your answers to the questions we provided:
+            Do you walk your dog daily? {latest_dog.daily_walk}
+            What is the breed of your dog? {latest_dog.dog_breed}
+            How old is your dog? {latest_dog.dog_age} 
+            What tricks does your dog know? Select all that apply:
+            {latest_dog.dog_tricks} 
+            '''
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = ['giwipa3403@mailboxt.net',latest_dog.email]
+            send_mail(subject, message, email_from, recipient_list, fail_silently =False)
 
             return HttpResponseRedirect(self.get_success_url())
 
